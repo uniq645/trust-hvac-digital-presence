@@ -31,15 +31,14 @@ const Hero = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 font-heading leading-tight animate-slide-up">
-            Stay Cool in Summer.
+            Reliable Air Conditioning
             <br />
-            <span className="text-secondary">Stay Warm in Winter.</span>
+            <span className="text-secondary">Solutions for Homes & Businesses</span>
           </h1>
 
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Professional heating, ventilation, and air conditioning services for
-            homes and businesses across Accra. 24/7 emergency support with
-            certified technicians you can trust.
+            Expert Installation, Servicing & Maintenance for Ultimate Comfort & Efficiency.
+            24/7 emergency support with certified technicians you can trust.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up" style={{ animationDelay: "0.2s" }}>

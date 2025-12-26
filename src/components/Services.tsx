@@ -10,10 +10,10 @@ const services = [
     color: "primary",
   },
   {
-    icon: Flame,
-    title: "Heating Systems",
+    icon: Fan,
+    title: "Air Quality Solutions",
     description:
-      "Professional heating solutions including furnace installation, heat pumps, and radiant heating systems for maximum comfort.",
+      "Professional air quality solutions including ventilation systems, air purifiers, and humidity control for healthier indoor environments.",
     color: "secondary",
   },
   {
