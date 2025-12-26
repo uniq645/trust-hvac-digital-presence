@@ -32,7 +32,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md shadow-lg border-b border-border/50"
+          ? "glass-header shadow-md"
           : "bg-transparent"
       }`}
     >
@@ -47,11 +47,11 @@ const Header = () => {
               handleNavClick("#home");
             }}
           >
-            <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
-              <Wind className="w-6 h-6 text-primary-foreground" />
+            <div className={`flex items-center justify-center w-10 h-10 rounded-lg ${isScrolled ? 'bg-primary' : 'bg-white/10 backdrop-blur-sm'}`}>
+              <Wind className={`w-6 h-6 ${isScrolled ? 'text-white' : 'text-white'}`} />
             </div>
-            <span className={isScrolled ? "text-foreground" : "text-primary-foreground"}>
-              Trust<span className="text-secondary">HVAC</span>
+            <span className={isScrolled ? "text-primary" : "text-white"}>
+              Trust<span className={isScrolled ? "text-secondary" : "text-secondary"}>HVAC</span>
             </span>
           </a>
 
@@ -65,8 +65,8 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className={`font-medium transition-colors hover:text-primary ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground/90"
+                className={`font-medium text-sm uppercase tracking-wide transition-colors hover:text-accent ${
+                  isScrolled ? "text-foreground" : "text-white/90"
                 }`}
               >
                 {link.label}
@@ -79,7 +79,7 @@ const Header = () => {
             <a
               href="tel:+233244222313"
               className={`flex items-center gap-2 font-medium ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+                isScrolled ? "text-primary" : "text-white"
               }`}
             >
               <Phone className="w-4 h-4" />
@@ -88,6 +88,7 @@ const Header = () => {
             <Button
               onClick={() => handleNavClick("#contact")}
               variant={isScrolled ? "default" : "hero"}
+              className={!isScrolled ? "bg-secondary text-white hover:bg-secondary/90 border-none" : ""}
             >
               Get a Quote
             </Button>
@@ -100,9 +101,9 @@ const Header = () => {
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             )}
           </button>
         </div>
