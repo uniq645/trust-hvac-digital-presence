@@ -77,13 +77,13 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:+233000000000"
+              href="tel:+233244222313"
               className={`flex items-center gap-2 font-medium ${
                 isScrolled ? "text-foreground" : "text-primary-foreground"
               }`}
             >
               <Phone className="w-4 h-4" />
-              <span>+233 000 000 000</span>
+              <span>+233 244 222 313</span>
             </a>
             <Button
               onClick={() => handleNavClick("#contact")}
