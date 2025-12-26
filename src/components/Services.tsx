@@ -1,4 +1,4 @@
-import { AirVent, Flame, Wrench, ThermometerSun, Fan, Settings } from "lucide-react";
+import { AirVent, Flame, Wrench, ThermometerSun, Fan, Settings, Snowflake, Cpu, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -46,6 +46,30 @@ const services = [
   },
 ];
 
+const lgProducts = [
+  {
+    icon: Snowflake,
+    title: "LG Dual Inverter Split AC",
+    description:
+      "Experience faster cooling with up to 40% energy savings. The Dual Inverter Compressor ensures quiet operation and durability.",
+    color: "secondary",
+  },
+  {
+    icon: Building2,
+    title: "LG VRF System",
+    description:
+      "Variable Refrigerant Flow systems for large commercial buildings. Maximum efficiency with individual zone control.",
+    color: "secondary",
+  },
+  {
+    icon: Cpu,
+    title: "LG Multi V Anticorrosion",
+    description:
+      "Advanced anticorrosion technology designed for harsh environments. Ocean Black Fin protects against salt, sand, and industrial pollutants.",
+    color: "secondary",
+  },
+];
+
 const Services = () => {
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
@@ -85,7 +109,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {services.map((service, index) => (
             <div
               key={service.title}
@@ -105,6 +129,40 @@ const Services = () => {
               <p className="text-muted-foreground">{service.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* LG Products Section */}
+        <div className="mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-4">
+              Official LG Partner
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4 text-foreground">
+              Premium <span className="text-secondary">LG Products</span> We Install
+            </h3>
+            <p className="text-muted-foreground">
+              As an authorized LG dealer, we provide top-of-the-line air conditioning solutions
+              with industry-leading technology and reliability.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {lgProducts.map((product, index) => (
+              <div
+                key={product.title}
+                className="group bg-card rounded-2xl p-6 border-2 border-secondary/20 shadow-md hover:shadow-xl hover:border-secondary/50 transition-all duration-300 hover:-translate-y-2"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 bg-secondary text-secondary-foreground">
+                  <product.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold font-heading mb-2 text-foreground group-hover:text-secondary transition-colors">
+                  {product.title}
+                </h3>
+                <p className="text-muted-foreground">{product.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* CTA */}

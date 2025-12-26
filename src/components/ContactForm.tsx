@@ -14,8 +14,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    content: "+233 000 000 000",
-    href: "tel:+233000000000",
+    content: "024 422 2313",
+    href: "tel:+233244222313",
   },
   {
     icon: Mail,
