@@ -22,8 +22,8 @@
     --primary: 210 90% 45%;
     --primary-foreground: 0 0% 100%;
 
-    /* Warm orange - heating, energy */
-    --secondary: 25 95% 55%;
+    /* LG Red - brand partner color */
+    --secondary: 348 95% 40%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 20% 94%;
@@ -86,7 +86,7 @@
     --primary: 210 90% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 95% 55%;
+    --secondary: 348 95% 45%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 215 25% 18%;
