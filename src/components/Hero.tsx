@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Clock, Award } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Award } from "lucide-react";
 import heroImage from "@/assets/hero-hvac.jpg";
 
 const Hero = () => {
@@ -11,96 +11,90 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-primary"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/60" />
+      {/* Background with Asymmetrical Overlay */}
+      <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/40 z-10" />
+          <img
+            src="https://images.unsplash.com/photo-1581094794329-cd1361dca687?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+            alt="HVAC Technician"
+            className="w-full h-full object-cover object-center"
+          />
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 pt-20">
+      <div className="relative z-20 container mx-auto px-4 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="max-w-3xl">
-          <div className="animate-fade-in">
-            <span className="inline-block px-4 py-2 bg-secondary/20 text-secondary-foreground rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-secondary/30">
-              🌡️ Accra's Most Trusted HVAC Experts
+          <div className="animate-fade-in mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 text-secondary-foreground rounded-full text-sm font-bold backdrop-blur-sm shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+              #1 Rated HVAC Service in Accra
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 font-heading leading-tight animate-slide-up">
-            Reliable Air Conditioning
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 font-heading leading-tight animate-slide-up tracking-tight">
+            Comfort That
             <br />
-            <span className="text-secondary">Solutions for Homes & Businesses</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-secondary drop-shadow-sm">Lasts All Year.</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Expert Installation, Servicing & Maintenance for Ultimate Comfort & Efficiency.
-            24/7 emergency support with certified technicians you can trust.
+          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
+            Don't let the heat beat you. Expert installation, rapid repair, and preventative maintenance for homes that stay cool and businesses that stay productive.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <Button
               size="lg"
               variant="secondary"
               onClick={() => handleNavClick("#contact")}
-              className="group"
+              className="group text-lg px-8 py-6 h-auto shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
-              Get Free Estimate
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              Book Emergency Repair
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               size="lg"
               variant="hero-outline"
               onClick={() => handleNavClick("#services")}
+              className="text-lg px-8 py-6 h-auto border-2 hover:bg-white/10"
             >
-              Explore Services
+              View Service Plans
             </Button>
           </div>
 
-          {/* Trust Badges */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-            <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-4 border border-primary-foreground/20">
-              <div className="flex items-center justify-center w-12 h-12 bg-secondary rounded-lg">
-                <Shield className="w-6 h-6 text-secondary-foreground" />
-              </div>
-              <div>
-                <p className="text-primary-foreground font-semibold">Licensed & Insured</p>
-                <p className="text-primary-foreground/70 text-sm">Fully certified</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-4 border border-primary-foreground/20">
-              <div className="flex items-center justify-center w-12 h-12 bg-accent rounded-lg">
-                <Clock className="w-6 h-6 text-accent-foreground" />
-              </div>
-              <div>
-                <p className="text-primary-foreground font-semibold">24/7 Service</p>
-                <p className="text-primary-foreground/70 text-sm">Always available</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-4 border border-primary-foreground/20">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary-foreground/20 rounded-lg">
-                <Award className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <p className="text-primary-foreground font-semibold">10+ Years</p>
-                <p className="text-primary-foreground/70 text-sm">Experience</p>
-              </div>
-            </div>
+          {/* Trust Indicators - Horizontal */}
+          <div className="flex flex-col sm:flex-row gap-8 animate-slide-up border-t border-white/10 pt-8" style={{ animationDelay: "0.3s" }}>
+             <div className="flex items-start gap-3">
+                <ShieldCheck className="w-6 h-6 text-accent shrink-0 mt-1" />
+                <div>
+                    <h3 className="text-white font-bold">Licensed & Insured</h3>
+                    <p className="text-blue-200 text-sm">100% Covered Protection</p>
+                </div>
+             </div>
+             <div className="flex items-start gap-3">
+                <Clock className="w-6 h-6 text-secondary shrink-0 mt-1" />
+                <div>
+                    <h3 className="text-white font-bold">Same-Day Service</h3>
+                    <p className="text-blue-200 text-sm">When you call before 10am</p>
+                </div>
+             </div>
+             <div className="flex items-start gap-3">
+                <Award className="w-6 h-6 text-yellow-400 shrink-0 mt-1" />
+                <div>
+                    <h3 className="text-white font-bold">5-Star Rated</h3>
+                    <p className="text-blue-200 text-sm">Trusted by 500+ Locals</p>
+                </div>
+             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-            className="fill-background"
-          />
-        </svg>
+        {/* Abstract/Technical Visual (Optional, or empty for layout balance on large screens) */}
+        <div className="hidden lg:block relative">
+            {/* We could put a floating card here or just let the image show through the gradient more on this side */}
+             <div className="absolute -right-20 top-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl filter" />
+             <div className="absolute -right-10 bottom-20 w-72 h-72 bg-secondary/20 rounded-full blur-3xl filter" />
+        </div>
       </div>
     </section>
   );

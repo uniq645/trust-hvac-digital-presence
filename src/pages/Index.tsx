@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
+import MobileBottomBar from "@/components/MobileBottomBar";
 
 const Index = () => {
   return (
@@ -53,7 +54,7 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen">
+      <div className="min-h-screen pb-16 md:pb-0">
         <Header />
         <main>
           <Hero />
@@ -63,6 +64,7 @@ const Index = () => {
           <ContactForm />
         </main>
         <Footer />
+        <MobileBottomBar />
       </div>
     </>
   );

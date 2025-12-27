@@ -1,5 +1,8 @@
-import { AirVent, Flame, Wrench, ThermometerSun, Fan, Settings, Snowflake, Cpu, Building2 } from "lucide-react";
+import { useState } from "react";
+import { AirVent, Fan, Wrench, ThermometerSun, Settings, Snowflake, Cpu, Building2, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   {
@@ -7,42 +10,42 @@ const services = [
     title: "AC Installation",
     description:
       "Expert installation of energy-efficient air conditioning systems for homes and commercial spaces. We work with all major brands.",
-    color: "primary",
+    type: "cooling",
+  },
+  {
+    icon: Flame,
+    title: "Heating Systems",
+    description:
+      "Reliable heating solutions for chilly nights. From furnace repair to complete system installations, we ensure your home stays cozy.",
+    type: "heating",
   },
   {
     icon: Fan,
     title: "Air Quality Solutions",
     description:
       "Professional air quality solutions including ventilation systems, air purifiers, and humidity control for healthier indoor environments.",
-    color: "secondary",
+    type: "both",
   },
   {
     icon: Wrench,
     title: "Repairs & Maintenance",
     description:
       "Fast, reliable repairs for all HVAC systems. Our preventive maintenance plans keep your equipment running smoothly year-round.",
-    color: "accent",
+    type: "both",
   },
   {
     icon: ThermometerSun,
-    title: "Thermostat Solutions",
+    title: "Smart Thermostats",
     description:
-      "Smart thermostat installation and programming. Control your home's climate from anywhere with modern technology.",
-    color: "primary",
-  },
-  {
-    icon: Fan,
-    title: "Ventilation Services",
-    description:
-      "Improve indoor air quality with our ventilation solutions. Duct cleaning, air purification, and fresh air systems.",
-    color: "secondary",
+      "Installation and programming of smart thermostats. Control your climate from anywhere and save on energy bills.",
+    type: "both",
   },
   {
     icon: Settings,
     title: "System Upgrades",
     description:
       "Upgrade to modern, energy-efficient HVAC systems. We help you reduce energy costs while improving comfort.",
-    color: "accent",
+    type: "both",
   },
 ];
 
@@ -52,93 +55,98 @@ const lgProducts = [
     title: "LG Dual Inverter Split AC",
     description:
       "Experience faster cooling with up to 40% energy savings. The Dual Inverter Compressor ensures quiet operation and durability.",
-    color: "secondary",
   },
   {
     icon: Building2,
     title: "LG VRF System",
     description:
       "Variable Refrigerant Flow systems for large commercial buildings. Maximum efficiency with individual zone control.",
-    color: "secondary",
   },
   {
     icon: Cpu,
     title: "LG Multi V Anticorrosion",
     description:
       "Advanced anticorrosion technology designed for harsh environments. Ocean Black Fin protects against salt, sand, and industrial pollutants.",
-    color: "secondary",
   },
 ];
 
 const Services = () => {
+  const [mode, setMode] = useState<"cooling" | "heating">("cooling");
+
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const getColorClasses = (color: string) => {
-    switch (color) {
-      case "primary":
-        return "bg-primary text-primary-foreground";
-      case "secondary":
-        return "bg-secondary text-secondary-foreground";
-      case "accent":
-        return "bg-accent text-accent-foreground";
-      default:
-        return "bg-primary text-primary-foreground";
-    }
-  };
+  const isCooling = mode === "cooling";
+  const primaryColor = isCooling ? "bg-accent" : "bg-secondary";
+  const textColor = isCooling ? "text-accent" : "text-secondary";
+  const borderColor = isCooling ? "border-accent" : "border-secondary";
+  const buttonVariant = isCooling ? "default" : "secondary";
 
   return (
-    <section id="services" className="section-padding bg-background">
+    <section id="services" className={`section-padding bg-background transition-colors duration-500`}>
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Our Services
-          </span>
+          <div className="flex items-center justify-center gap-4 mb-8">
+             <span className={`text-sm font-bold ${isCooling ? "text-accent" : "text-muted-foreground"}`}>COOLING MODE</span>
+             <Switch
+                checked={mode === "heating"}
+                onCheckedChange={(checked) => setMode(checked ? "heating" : "cooling")}
+                className="data-[state=checked]:bg-secondary data-[state=unchecked]:bg-accent"
+             />
+             <span className={`text-sm font-bold ${!isCooling ? "text-secondary" : "text-muted-foreground"}`}>HEATING MODE</span>
+          </div>
+
           <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4 text-foreground">
-            Complete HVAC Solutions for{" "}
-            <span className="text-primary">Every Need</span>
+            Complete <span className={textColor}>{isCooling ? "Cooling" : "Heating"}</span> Solutions
           </h2>
           <p className="text-muted-foreground text-lg">
-            From installation to maintenance, we provide comprehensive heating,
-            ventilation, and air conditioning services to keep your space comfortable
-            all year round.
+            {isCooling
+              ? "Beat the heat with our premium air conditioning installation, repair, and maintenance services."
+              : "Stay warm and cozy with our expert heating repair and installation services."
+            }
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className="group bg-card rounded-2xl p-6 border border-border shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div
-                className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 ${getColorClasses(
-                  service.color
-                )}`}
+          <AnimatePresence>
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`group card-pro p-6 offset-border hover:shadow-xl transition-all duration-300 relative overflow-hidden`}
               >
-                <service.icon className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold font-heading mb-2 text-foreground group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground">{service.description}</p>
-            </div>
-          ))}
+                <div
+                  className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 transition-colors duration-300 ${isCooling ? 'bg-blue-50 text-blue-600' : 'bg-red-50 text-red-600'}`}
+                >
+                  <service.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold font-heading mb-2 text-foreground group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground">{service.description}</p>
+
+                {/* Decorative background element */}
+                <div className={`absolute -right-4 -bottom-4 w-24 h-24 rounded-full opacity-5 transition-colors duration-300 ${isCooling ? 'bg-blue-500' : 'bg-red-500'}`} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* LG Products Section */}
         <div className="mb-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-gray-100 text-gray-600 rounded-full text-sm font-medium mb-4">
               Official LG Partner
             </span>
             <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4 text-foreground">
-              Premium <span className="text-secondary">LG Products</span> We Install
+              Premium <span className="text-red-600">LG Products</span> We Install
             </h3>
             <p className="text-muted-foreground">
               As an authorized LG dealer, we provide top-of-the-line air conditioning solutions
@@ -148,27 +156,34 @@ const Services = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {lgProducts.map((product, index) => (
-              <div
+              <motion.div
                 key={product.title}
-                className="group bg-card rounded-2xl p-6 border-2 border-secondary/20 shadow-md hover:shadow-xl hover:border-secondary/50 transition-all duration-300 hover:-translate-y-2"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group bg-white rounded-2xl p-6 border border-gray-100 shadow-md hover:shadow-xl hover:border-red-100 transition-all duration-300"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 bg-secondary text-secondary-foreground">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 bg-red-600 text-white shadow-lg shadow-red-200">
                   <product.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold font-heading mb-2 text-foreground group-hover:text-secondary transition-colors">
+                <h3 className="text-xl font-bold font-heading mb-2 text-foreground group-hover:text-red-600 transition-colors">
                   {product.title}
                 </h3>
                 <p className="text-muted-foreground">{product.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
         <div className="text-center">
-          <Button size="lg" onClick={() => handleNavClick("#contact")}>
-            Schedule a Service
+          <Button
+            size="lg"
+            onClick={() => handleNavClick("#contact")}
+            className={`${isCooling ? 'bg-accent hover:bg-accent/90' : 'bg-secondary hover:bg-secondary/90'} text-white transition-colors duration-300 shadow-lg hover:shadow-xl`}
+          >
+            Schedule a {isCooling ? "Cooling" : "Heating"} Service
           </Button>
         </div>
       </div>

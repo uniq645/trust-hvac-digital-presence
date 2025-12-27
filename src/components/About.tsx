@@ -1,4 +1,5 @@
-import { CheckCircle, Users, Award, ThumbsUp } from "lucide-react";
+import { CheckCircle, Users, Award, ThumbsUp, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const stats = [
   { icon: Users, value: "500+", label: "Happy Clients" },
@@ -18,60 +19,76 @@ const features = [
 
 const About = () => {
   return (
-    <section id="about" className="section-padding bg-muted/50">
+    <section id="about" className="section-padding bg-slate-50 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/50 skew-x-12 transform origin-top-right -z-10" />
+
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div>
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              About Us
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 font-heading tracking-wide">
+              Who We Are
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-foreground">
-              Trusted HVAC Experts in{" "}
-              <span className="text-primary">Accra, Ghana</span>
+            <h2 className="text-3xl md:text-4xl font-bold font-heading mb-6 text-foreground leading-tight">
+              We Don't Just Fix ACs. <br/>
+              <span className="text-primary">We Restore Comfort.</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-6">
-              Trust HVAC Services has been providing top-quality heating,
-              ventilation, and air conditioning services to homes and businesses
-              across Accra for over a decade. Our team of certified technicians
-              is committed to delivering exceptional service with integrity and
-              professionalism.
+            <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+              For over a decade, Trust HVAC Services has been the backbone of climate control for Accra's homes and businesses. We aren't just technicians; we are your neighbors committed to ensuring your indoor environment is perfect, regardless of the weather outside.
             </p>
-            <p className="text-muted-foreground mb-8">
-              Located at Junction, No 48 Sotrek Building, Ecobank MC Cathy Hills
-              branch, Mallam, Accra, we're strategically positioned to serve
-              clients throughout the Greater Accra Region promptly and
-              efficiently.
-            </p>
+
+            <div className="flex items-start gap-3 mb-8 p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
+                <MapPin className="w-6 h-6 text-secondary shrink-0 mt-1" />
+                <div>
+                    <h4 className="font-bold text-foreground">Local & Accessible</h4>
+                    <p className="text-slate-500 text-sm">
+                        Junction, No 48 Sotrek Building, Ecobank MC Cathy Hills branch, Mallam, Accra.
+                        Strategically positioned for rapid response across the Greater Accra Region.
+                    </p>
+                </div>
+            </div>
 
             {/* Features List */}
             <div className="grid sm:grid-cols-2 gap-3">
-              {features.map((feature) => (
-                <div key={feature} className="flex items-center gap-2">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
-                  <span className="text-foreground">{feature}</span>
+                  <span className="text-slate-700 font-medium">{feature}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-6 relative">
+             {/* Background blob for visual interest */}
+             <div className="absolute inset-0 bg-blue-100 rounded-full blur-3xl opacity-30 scale-75" />
+
             {stats.map((stat, index) => (
-              <div
+              <motion.div
                 key={stat.label}
-                className={`bg-card rounded-2xl p-6 text-center border border-border shadow-md hover-lift ${
-                  index === 0 ? "lg:mt-8" : ""
-                } ${index === 3 ? "lg:mb-8" : ""}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 ${
+                  index % 2 !== 0 ? "lg:mt-12" : ""
+                }`}
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-xl mb-4">
-                  <stat.icon className="w-7 h-7 text-primary" />
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-50 rounded-xl mb-4 text-primary">
+                  <stat.icon className="w-7 h-7" />
                 </div>
                 <p className="text-3xl md:text-4xl font-bold text-foreground font-heading mb-1">
                   {stat.value}
                 </p>
-                <p className="text-muted-foreground">{stat.label}</p>
-              </div>
+                <p className="text-slate-500 font-medium text-sm uppercase tracking-wider">{stat.label}</p>
+              </motion.div>
             ))}
           </div>
         </div>

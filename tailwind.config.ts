@@ -20,24 +20,20 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#1E3A8A", // Deep Navy
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "#DC2626", // Emergency Red
           foreground: "hsl(var(--secondary-foreground))",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+        accent: {
+          DEFAULT: "#0EA5E9", // Sky Blue
+          foreground: "hsl(var(--accent-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
+          DEFAULT: "#64748B", // Slate Gray
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -65,7 +61,7 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        heading: ["Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
+        heading: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
         sm: "var(--shadow-sm)",
@@ -73,6 +69,7 @@ export default {
         lg: "var(--shadow-lg)",
         xl: "var(--shadow-xl)",
         glow: "var(--shadow-glow)",
+        "service-card": "0 10px 30px -10px rgba(0,0,0,0.1)",
       },
       keyframes: {
         "accordion-down": {
@@ -95,6 +92,10 @@ export default {
           from: { opacity: "0", transform: "translateX(20px)" },
           to: { opacity: "1", transform: "translateX(0)" },
         },
+        pulse: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -102,6 +103,7 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "slide-up": "slide-up 0.5s ease-out forwards",
         "slide-in-right": "slide-in-right 0.5s ease-out forwards",
+        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },
