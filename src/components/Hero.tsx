@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, Clock, Award } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Award, Phone, Calendar } from "lucide-react";
 import heroImage from "@/assets/hero-hvac.jpg";
 
 const Hero = () => {
@@ -9,87 +9,97 @@ const Hero = () => {
   };
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-primary"
-    >
-      {/* Background with Asymmetrical Overlay */}
-      <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/40 z-10" />
-          <img src="@/assets/hero-hvac.jpg" alt="HVAC Technician" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="max-w-3xl">
-          <div className="animate-fade-in mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 text-secondary-foreground rounded-full text-sm font-bold backdrop-blur-sm shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              #1 Rated HVAC Service in Accra
+    <section className="relative min-h-screen flex overflow-hidden bg-gray-900">
+      {/* Left Content Panel */}
+      <div className="relative z-20 w-full lg:w-1/2 flex items-center">
+        <div className="max-w-2xl mx-auto px-8 py-12 lg:px-16">
+          {/* Tagline Badge */}
+          <div className="mb-10">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg text-sm font-semibold shadow-lg">
+              <Award className="w-4 h-4" />
+              Accra's Most Trusted HVAC Service
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 font-heading leading-tight animate-slide-up tracking-tight">
-            Comfort That
+          {/* Headline */}
+          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+            Your Comfort,
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-secondary drop-shadow-sm">Lasts All Year.</span>
+            <span className="relative">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
+                Our Expertise
+              </span>
+              <div className="absolute -bottom-2 left-0 w-3/4 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full" />
+            </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
-            Don't let the heat beat you. Expert installation, rapid repair, and preventative maintenance for homes that stay cool and businesses that stay productive.
+          {/* Description */}
+          <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-lg">
+            24/7 emergency repairs, professional installations, and maintenance plans that keep your space perfect year-round.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
             <Button
               size="lg"
-              variant="secondary"
+              className="group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-10 py-7 rounded-xl text-lg font-semibold shadow-2xl hover:shadow-orange-500/25 transition-all duration-300"
               onClick={() => handleNavClick("#contact")}
-              className="group text-lg px-8 py-6 h-auto shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
-              Book Emergency Repair
+              <Phone className="w-5 h-5 mr-3" />
+              Emergency Call Now
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               size="lg"
-              variant="hero-outline"
+              variant="outline"
+              className="border-2 border-white/30 hover:bg-white/10 text-white px-10 py-7 rounded-xl text-lg font-semibold backdrop-blur-sm"
               onClick={() => handleNavClick("#services")}
-              className="text-lg px-8 py-6 h-auto border-2 hover:bg-white/10"
             >
-              View Service Plans
+              <Calendar className="w-5 h-5 mr-3" />
+              Schedule Service
             </Button>
           </div>
 
-          {/* Trust Indicators - Horizontal */}
-          <div className="flex flex-col sm:flex-row gap-8 animate-slide-up border-t border-white/10 pt-8" style={{ animationDelay: "0.3s" }}>
-             <div className="flex items-start gap-3">
-                <ShieldCheck className="w-6 h-6 text-accent shrink-0 mt-1" />
-                <div>
-                    <h3 className="text-white font-bold">Licensed & Insured</h3>
-                    <p className="text-blue-200 text-sm">100% Covered Protection</p>
-                </div>
-             </div>
-             <div className="flex items-start gap-3">
-                <Clock className="w-6 h-6 text-secondary shrink-0 mt-1" />
-                <div>
-                    <h3 className="text-white font-bold">Same-Day Service</h3>
-                    <p className="text-blue-200 text-sm">When you call before 10am</p>
-                </div>
-             </div>
-             <div className="flex items-start gap-3">
-                <Award className="w-6 h-6 text-yellow-400 shrink-0 mt-1" />
-                <div>
-                    <h3 className="text-white font-bold">5-Star Rated</h3>
-                    <p className="text-blue-200 text-sm">Trusted by 500+ Locals</p>
-                </div>
-             </div>
+          {/* Trust Badges */}
+          <div className="grid grid-cols-3 gap-6">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+              <ShieldCheck className="w-8 h-8 text-green-400 mb-3" />
+              <h3 className="text-white font-bold text-lg">Guaranteed</h3>
+              <p className="text-gray-400 text-sm">Licensed & Insured</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+              <Clock className="w-8 h-8 text-blue-400 mb-3" />
+              <h3 className="text-white font-bold text-lg">Fast Response</h3>
+              <p className="text-gray-400 text-sm">Same-Day Service</p>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+              <Award className="w-8 h-8 text-yellow-400 mb-3" />
+              <h3 className="text-white font-bold text-lg">5-Star</h3>
+              <p className="text-gray-400 text-sm">500+ Reviews</p>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Abstract/Technical Visual (Optional, or empty for layout balance on large screens) */}
-        <div className="hidden lg:block relative">
-            {/* We could put a floating card here or just let the image show through the gradient more on this side */}
-             <div className="absolute -right-20 top-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl filter" />
-             <div className="absolute -right-10 bottom-20 w-72 h-72 bg-secondary/20 rounded-full blur-3xl filter" />
+      {/* Right Image Panel */}
+      <div className="hidden lg:block lg:w-1/2 relative">
+        <div className="absolute inset-0 bg-gradient-to-l from-gray-900/30 via-gray-900/10 to-transparent z-10" />
+        <img
+          src={heroImage}
+          alt="HVAC Technician at work"
+          className="w-full h-full object-cover object-left"
+        />
+        {/* Floating Stats Overlay */}
+        <div className="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-xs">
+          <div className="flex items-center gap-4">
+            <div className="bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl p-4">
+              <Clock className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <p className="text-white/80 text-sm">Average Response Time</p>
+              <p className="text-white text-2xl font-bold">45 mins</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
