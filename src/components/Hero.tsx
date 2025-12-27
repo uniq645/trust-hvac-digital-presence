@@ -16,7 +16,7 @@ const Hero = () => {
       {/* Background with Asymmetrical Overlay */}
       <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/40 z-10" />
-          <img src="https://images.unsplash.com/photo-1581094794329-cd1361dca687?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="HVAC Technician" />
+          <img src="@/assets/hero-hvac.jpg" alt="HVAC Technician" />
       </div>
 
       {/* Content */}
