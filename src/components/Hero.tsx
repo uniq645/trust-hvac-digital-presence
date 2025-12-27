@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, Clock, Award, CheckCircle } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Award } from "lucide-react";
 import heroImage from "@/assets/hero-hvac.jpg";
 
 const Hero = () => {
@@ -9,97 +9,119 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-4">
-      {/* Background with Dual Gradient */}
-      <div className="absolute inset-0">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden bg-primary"
+    >
+      {/* Background with Asymmetrical Overlay - FIXED */}
+      <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
+          src={heroImage}  // FIXED: Using the imported image
           alt="HVAC Technician"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-900/80 to-primary/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent" />
+        {/* Gradient overlay - adjusted for better readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/40 z-10" />
+        {/* Additional subtle gradient for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10 opacity-50" />
       </div>
 
-      {/* Floating Content Card */}
-      <div className="relative z-20 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden max-w-4xl w-full">
-        <div className="p-12 lg:p-16">
-          {/* Headline Section */}
-          <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500/20 to-orange-600/20 border border-orange-500/30 text-orange-100 rounded-full text-sm font-semibold mb-8 backdrop-blur-sm">
-              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-              Trusted by 500+ Homes & Businesses
+      {/* Content */}
+      <div className="relative z-20 container mx-auto px-4 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-3xl">
+          <div className="animate-fade-in mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 text-secondary-foreground rounded-full text-sm font-bold backdrop-blur-sm shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+              #1 Rated HVAC Service in Accra
             </span>
-            
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Precision
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-yellow-300"> Climate Control </span>
-              for Accra
-            </h1>
-            
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              From emergency repairs to comprehensive installations—experience HVAC service that sets the standard for reliability and comfort.
-            </p>
           </div>
 
-          {/* CTA Section */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-16">
-            <div className="flex-1 max-w-md">
-              <Button
-                size="lg"
-                className="w-full group bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-orange-700 hover:to-yellow-700 text-white py-8 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-orange-500/30 transition-all duration-300"
-                onClick={() => handleNavClick("#contact")}
-              >
-                <span className="flex items-center justify-center gap-3">
-                  Emergency Service
-                  <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </span>
-              </Button>
-            </div>
-            
-            <div className="hidden lg:block h-16 w-px bg-gradient-to-b from-transparent via-white/30 to-transparent" />
-            
-            <div className="flex-1 max-w-md">
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full border-2 border-white/40 hover:bg-white/10 text-white py-8 rounded-2xl text-xl font-bold backdrop-blur-sm"
-                onClick={() => handleNavClick("#services")}
-              >
-                Schedule Consultation
-              </Button>
-            </div>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 font-heading leading-tight animate-slide-up tracking-tight">
+            Comfort That
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-secondary drop-shadow-sm">Lasts All Year.</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-xl animate-slide-up leading-relaxed" style={{ animationDelay: "0.1s" }}>
+            Don't let the heat beat you. Expert installation, rapid repair, and preventative maintenance for homes that stay cool and businesses that stay productive.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-16 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            <Button
+              size="lg"
+              variant="secondary"
+              onClick={() => handleNavClick("#contact")}
+              className="group text-lg px-8 py-6 h-auto shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              Book Emergency Repair
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button
+              size="lg"
+              variant="hero-outline"
+              onClick={() => handleNavClick("#services")}
+              className="text-lg px-8 py-6 h-auto border-2 hover:bg-white/10"
+            >
+              View Service Plans
+            </Button>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: ShieldCheck, title: "Licensed & Insured", desc: "Fully certified protection", color: "text-green-400" },
-              { icon: Clock, title: "24/7 Emergency", desc: "Same-day service guaranteed", color: "text-blue-400" },
-              { icon: Award, title: "Satisfaction Guarantee", desc: "5-star rated service", color: "text-yellow-400" }
-            ].map((item, index) => (
-              <div key={index} className="flex items-start gap-4 p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-colors">
-                <div className={`p-3 rounded-xl bg-white/10 ${item.color}`}>
-                  <item.icon className="w-6 h-6" />
-                </div>
+          {/* Trust Indicators - Horizontal */}
+          <div className="flex flex-col sm:flex-row gap-8 animate-slide-up border-t border-white/10 pt-8" style={{ animationDelay: "0.3s" }}>
+             <div className="flex items-start gap-3">
+                <ShieldCheck className="w-6 h-6 text-accent shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-white font-bold text-lg">{item.title}</h3>
-                  <p className="text-gray-400">{item.desc}</p>
+                    <h3 className="text-white font-bold">Licensed & Insured</h3>
+                    <p className="text-blue-200 text-sm">100% Covered Protection</p>
                 </div>
-              </div>
-            ))}
+             </div>
+             <div className="flex items-start gap-3">
+                <Clock className="w-6 h-6 text-secondary shrink-0 mt-1" />
+                <div>
+                    <h3 className="text-white font-bold">Same-Day Service</h3>
+                    <p className="text-blue-200 text-sm">When you call before 10am</p>
+                </div>
+             </div>
+             <div className="flex items-start gap-3">
+                <Award className="w-6 h-6 text-yellow-400 shrink-0 mt-1" />
+                <div>
+                    <h3 className="text-white font-bold">5-Star Rated</h3>
+                    <p className="text-blue-200 text-sm">Trusted by 500+ Locals</p>
+                </div>
+             </div>
           </div>
         </div>
-        
-        {/* Bottom Gradient Accent */}
-        <div className="h-2 bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
+
+        {/* Abstract/Technical Visual - Enhanced with image preview */}
+        <div className="hidden lg:block relative">
+          {/* Floating image preview with frame */}
+          <div className="relative w-full max-w-md ml-auto">
+            <div className="absolute -inset-4 bg-gradient-to-r from-secondary/20 to-accent/20 rounded-3xl blur-xl" />
+            <div className="relative overflow-hidden rounded-2xl border-2 border-white/20 backdrop-blur-sm">
+              <img
+                src={heroImage}
+                alt="HVAC Service Preview"
+                className="w-full h-64 object-cover object-center"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary/90 to-transparent p-4">
+                <p className="text-white text-sm font-medium">Live on-site service</p>
+                <p className="text-blue-200 text-xs">Current technician available</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Gradient accents */}
+          <div className="absolute -right-20 top-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl filter" />
+          <div className="absolute -right-10 bottom-20 w-72 h-72 bg-secondary/20 rounded-full blur-3xl filter" />
+        </div>
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute bottom-8 left-8 text-white/80 text-sm">
-        <div className="flex items-center gap-2">
-          <CheckCircle className="w-4 h-4 text-green-400" />
-          <span>Available Now</span>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+        <div className="animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
+          </div>
         </div>
       </div>
     </section>
