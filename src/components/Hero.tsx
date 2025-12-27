@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, Clock, Award, Phone, Calendar } from "lucide-react";
+import { ArrowRight, Phone, Calendar, Zap, Thermometer, Users } from "lucide-react";
 import heroImage from "@/assets/hero-hvac.jpg";
 
 const Hero = () => {
@@ -9,98 +9,110 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex overflow-hidden bg-gray-900">
-      {/* Left Content Panel */}
-      <div className="relative z-20 w-full lg:w-1/2 flex items-center">
-        <div className="max-w-2xl mx-auto px-8 py-12 lg:px-16">
-          {/* Tagline Badge */}
-          <div className="mb-10">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg text-sm font-semibold shadow-lg">
-              <Award className="w-4 h-4" />
-              Accra's Most Trusted HVAC Service
-            </span>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gray-950">
+      {/* Background Image with Geometric Overlay */}
+      <div className="absolute inset-0">
+        <img
+          src={heroImage}
+          alt="HVAC Technician working"
+          className="w-full h-full object-cover object-center scale-110"
+        />
+        {/* Geometric Pattern Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,transparent_0%,#0f172a_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-transparent" />
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-20 container mx-auto px-6 lg:px-8 max-w-6xl">
+        <div className="max-w-2xl">
+          {/* Minimal Badge */}
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-3">
+              <div className="w-16 h-px bg-gradient-to-r from-orange-500 to-transparent" />
+              <span className="text-orange-400 font-mono text-sm tracking-widest uppercase">
+                HVAC Excellence
+              </span>
+            </div>
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-            Your Comfort,
+          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-8 font-sans tracking-tight">
+            Climate
             <br />
-            <span className="relative">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
-                Our Expertise
-              </span>
-              <div className="absolute -bottom-2 left-0 w-3/4 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full" />
-            </span>
+            <span className="text-gray-300">Mastery</span>
+            <span className="text-orange-500">.</span>
           </h1>
 
-          {/* Description */}
-          <p className="text-xl text-gray-300 mb-12 leading-relaxed max-w-lg">
-            24/7 emergency repairs, professional installations, and maintenance plans that keep your space perfect year-round.
+          {/* Subtitle */}
+          <p className="text-2xl text-gray-400 mb-16 leading-relaxed max-w-xl">
+            Professional HVAC solutions engineered for Accra's unique climate demands.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          {/* Minimal CTA */}
+          <div className="flex flex-col sm:flex-row gap-6 mb-20">
             <Button
               size="lg"
-              className="group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 text-white px-10 py-7 rounded-xl text-lg font-semibold shadow-2xl hover:shadow-orange-500/25 transition-all duration-300"
+              className="group bg-transparent border-2 border-orange-500 hover:bg-orange-500/10 text-white px-12 py-7 rounded-none text-lg font-medium transition-all duration-300"
               onClick={() => handleNavClick("#contact")}
             >
-              <Phone className="w-5 h-5 mr-3" />
-              Emergency Call Now
-              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              <span className="flex items-center gap-3">
+                <Phone className="w-5 h-5" />
+                Immediate Response
+                <ArrowRight className="w-5 h-5 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </span>
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-2 border-white/30 hover:bg-white/10 text-white px-10 py-7 rounded-xl text-lg font-semibold backdrop-blur-sm"
+              variant="ghost"
+              className="border-2 border-white/20 hover:border-white/40 text-white px-12 py-7 rounded-none text-lg font-medium hover:bg-white/5"
               onClick={() => handleNavClick("#services")}
             >
               <Calendar className="w-5 h-5 mr-3" />
-              Schedule Service
+              Planned Service
             </Button>
           </div>
 
-          {/* Trust Badges */}
-          <div className="grid grid-cols-3 gap-6">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
-              <ShieldCheck className="w-8 h-8 text-green-400 mb-3" />
-              <h3 className="text-white font-bold text-lg">Guaranteed</h3>
-              <p className="text-gray-400 text-sm">Licensed & Insured</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
-              <Clock className="w-8 h-8 text-blue-400 mb-3" />
-              <h3 className="text-white font-bold text-lg">Fast Response</h3>
-              <p className="text-gray-400 text-sm">Same-Day Service</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
-              <Award className="w-8 h-8 text-yellow-400 mb-3" />
-              <h3 className="text-white font-bold text-lg">5-Star</h3>
-              <p className="text-gray-400 text-sm">500+ Reviews</p>
-            </div>
+          {/* Stats Bar */}
+          <div className="flex flex-wrap gap-8 pt-12 border-t border-white/10">
+            {[
+              { icon: Zap, value: "24/7", label: "Emergency Service", color: "text-orange-500" },
+              { icon: Thermometer, value: "100%", label: "Satisfaction", color: "text-blue-400" },
+              { icon: Users, value: "500+", label: "Clients Served", color: "text-green-400" }
+            ].map((stat, index) => (
+              <div key={index} className="flex items-center gap-4">
+                <stat.icon className={`w-8 h-8 ${stat.color}`} />
+                <div>
+                  <p className="text-3xl font-bold text-white">{stat.value}</p>
+                  <p className="text-gray-500 text-sm">{stat.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Right Image Panel */}
-      <div className="hidden lg:block lg:w-1/2 relative">
-        <div className="absolute inset-0 bg-gradient-to-l from-gray-900/30 via-gray-900/10 to-transparent z-10" />
-        <img
-          src={heroImage}
-          alt="HVAC Technician at work"
-          className="w-full h-full object-cover object-left"
-        />
-        {/* Floating Stats Overlay */}
-        <div className="absolute bottom-12 right-12 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-xs">
-          <div className="flex items-center gap-4">
-            <div className="bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl p-4">
-              <Clock className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <p className="text-white/80 text-sm">Average Response Time</p>
-              <p className="text-white text-2xl font-bold">45 mins</p>
-            </div>
+      {/* Right Side Technical Elements */}
+      <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-2/3">
+        <div className="relative h-full">
+          {/* Vertical Text */}
+          <div className="absolute right-12 top-0 transform -translate-y-1/2 rotate-90 origin-right">
+            <p className="text-white/10 text-8xl font-black tracking-widest uppercase">
+              HVAC
+            </p>
+          </div>
+          
+          {/* Floating Numbers */}
+          <div className="absolute right-24 bottom-32">
+            <div className="text-6xl font-bold text-white/5">01</div>
           </div>
         </div>
+      </div>
+
+      {/* Bottom Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div className="w-px h-16 bg-gradient-to-b from-orange-500 to-transparent" />
       </div>
     </section>
   );
