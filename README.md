@@ -1,73 +1,76 @@
-# Welcome to your Lovable project
+# 🛠️ Trust HVAC Services - High-Conversion Landing Page
 
-## Project info
+## 🎯 The Mission
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Most local service businesses (HVAC, Plumbing, Electrical) suffer from "leaky bucket" websites which they spend money on ads but lose users due to poor UI/UX and slow load times.
 
-## How can I edit this code?
+**Trust HVAC** is a performance-optimized, SEO-ready landing page built specifically to solve this problem. It is designed to convert anonymous visitors into booked appointments using modern psychological triggers and a lightning-fast tech stack.
 
-There are several ways of editing your application.
+## 🚀 Key Features for Business Growth
 
-**Use Lovable**
+- **Conversion-Optimized UI:** High-visibility "Call to Action" (CTA) buttons and lead capture forms positioned for maximum engagement.
+- **Mobile-First Design:** Fully responsive architecture ensuring local technicians and customers can access the site on-the-go.
+- **SEO Ready:** Semantic HTML5 and optimized metadata structure to help local businesses rank higher in local search results.
+- **Performance:** Built with Vite for near-instant load times (crucial for lowering bounce rates and improving Google Quality Score).
+- **Modern Styling:** Built using **shadcn/ui** and **Tailwind CSS** for a clean, professional aesthetic that builds instant brand trust.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🏗️ Technical Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Framework:** React 18
+- **Language:** TypeScript (Type-safe development for maintainability)
+- **Bundler:** Vite
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui (Radix UI primitives)
+- **Icons:** Lucide React
 
-**Use your preferred IDE**
+## 💻 Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+This repository is designed to be a **Production-Ready Starter Kit**. Whether you are building for a client or learning how to structure a professional landing page, follow the steps below:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Clone the repository
 
-Follow these steps:
+```
+git clone [https://github.com/YOUR_USERNAME/trust-hvac-services.git](https://github.com/YOUR_USERNAME/trust-hvac-services.git)
+cd trust-hvac-services
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 2. Install Dependencies
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 3. Start Development Server
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:5173`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 4. Build for Production
 
-**Use GitHub Codespaces**
+```
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🤝 Contribution & Open Source
 
-## What technologies are used for this project?
+I believe in giving back to the developer community. I built this project to serve as a blueprint for high-quality, service-oriented web applications.
 
-This project is built with:
+**Feel free to:**
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Use this as a template for your own freelance clients.
+- Submit a **Pull Request** if you find a bug or want to add a feature (e.g., a booking calendar integration or multi-step form).
+- **Star the repo** if you find this blueprint helpful!
 
-## How can I deploy this project?
+## 📩 Contact & Hire Me
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+I specialize in building web applications that don't just look good, but **drive revenue**. I am currently open to Frontend/Full Stack roles where I can apply technical excellence to solve business challenges.
 
-## Can I connect a custom domain to my Lovable project?
+- **Developer:** [Your Name]
+- **LinkedIn:** [Your LinkedIn Profile]
+- **Portfolio:** [Your Portfolio URL]
+- **Email:** [Your Email Address]
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*Created with a focus on performance, accessibility, and clean, scalable code.*
