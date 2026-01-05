@@ -68,9 +68,9 @@ I believe in giving back to the developer community. I built this project to ser
 
 I specialize in building web applications that don't just look good, but **drive revenue**. I am currently open to Frontend/Full Stack roles where I can apply technical excellence to solve business challenges.
 
-- **Developer:** [Your Name]
-- **LinkedIn:** [Your LinkedIn Profile]
-- **Portfolio:** [Your Portfolio URL]
-- **Email:** [Your Email Address]
+- **Developer:** Samuel Mochia
+- **LinkedIn:** www.linkedin.com/in/
+samuel-mochia
+- **Email:** samuelxmochia@gmail.com
 
 *Created with a focus on performance, accessibility, and clean, scalable code.*
